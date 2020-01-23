@@ -25,7 +25,7 @@ git update-index --assume-unchanged .github/workflows/*
 echo "## Running black on Python source"
 SRC=$(git ls-tree --full-tree -r HEAD | grep -e "\.\(py\|pyi\)\$" | cut -f 2)
 
-# clang-format -style=file -i $SRC
+black $SRC
 
 echo "## Commiting files..."
 git commit -a -m "Format Python code" || true
